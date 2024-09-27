@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Toolkit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Links -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+            <li><a href="#contact" onclick="showSection('contact')">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to the Agriculture Toolkit</h1>
+        <div class="options">
+            <div class="option">
+                <a href="{{ url_for('crop_recommendation') }}">
+                    <img src="{{ url_for('static', filename='crop_recommendation.jpg') }}" alt="Crop Recommendation">
+                    <p>Crop Recommendation</p>
+                </a>
+            </div>
+            <div class="option">
+                <a href="{{ url_for('disease_detection') }}">
+                    <img src="{{ url_for('static', filename='disease_detection.jpg') }}" alt="Disease Detection">
+                    <p>Disease Detection</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sections -->
+
+    <section id="about" style="display: none;">
+        <h2 style="color: #edfaf0;">About Us</h2>
+        <p style="color: #edfaf0;">Farming is one of the major sectors that influences a country's economic growth.<br>In country like India, majority of the population is dependent on agriculture for their livelihood.<br>The system integrates two crucial features: Crop Recommendation and Disease Prediction.<br>Allows farmers to input soil and environmental parameters such as soil type, rainfall, temperature, humidity and recommends the best crop that can be grown in that particular region.<br>Farmers can upload images of plant leaves displaying signs of disease, and the system predicts the type of disease affecting the crop.</p>
+    </section>
+
+    <section id="contact" style="display: none;">
+        <h2 style="color: #edfaf0;">Contact Us</h2>
+        <p style="color: #edfaf0;"></p>
+    </section>
+
+    <!-- Background Image -->
+    <style>
+        /* Add background image to body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/bg_farm.jpg'); /* Background image for the entire page */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #fff; /* White text color */
+        }
+
+        
+    </style>
+
+    <!-- JavaScript to show sections -->
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            var sections = document.querySelectorAll('section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            // Show the selected section
+            var selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

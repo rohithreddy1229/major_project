@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    
+</head>
+<body>
+    <!-- Navigation Links -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="/#about" onclick="showSection('about')">About Us</a></li>
+            <li><a href="/#contact" onclick="showSection('contact')">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Result</h1>
+        <img src="{{ url_for('uploaded_file', filename=image_name) }}" alt="Uploaded Image" style="max-width: 500px;">
+        <div class="additional-text">
+            <div class="additional-text-container">
+                {{ additional_text | safe }}
+            </div>
+        </div>
+        <button onclick="window.location.href='/disease_detection'">Back</button>
+    </div>
+    <!-- Background Image -->
+    <style>
+        /* Add background image to body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/bg_farm.jpg'); /* Background image for the entire page */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #000000; /* White text color */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 10vh; /* Set container height to full viewport height */
+        }
+
+        /* CSS for centering text */
+        .disease-text {
+            text-align: center;
+        }
+        /* CSS for left-aligned additional text */
+        .additional-text {
+        text-align: left;
+        }
+
+        .additional-text-container {
+            max-width: 1000px; /* Adjust this value as needed */
+            margin: 0 auto; /* Center the container */
+            text-align: justify;
+        }
+        
+    </style>
+</body>
+</html>

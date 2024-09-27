@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navigation Links -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="/#about" onclick="showSection('about')">About Us</a></li>
+            <li><a href="/#contact" onclick="showSection('contact')">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Recommended Crop</h1>
+        <div class="crop-image-container">
+            <img src="{{ url_for('static', filename='crop_images/' + crop_image) }}" alt="{{ crop }}">
+        </div>
+        <p class="result">The best crop to be cultivated is: {{ crop }}</p>
+
+        <button onclick="window.location.href='/crop_recommendation'">Back</button>
+
+    </div>
+    <!-- Background Image -->
+    <style>
+        /* Add background image to body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/bg_farm.jpg'); /* Background image for the entire page */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #000000; /* White text color */
+        }
+
+        
+    </style>
+
+    
+
+</body>
+</html>

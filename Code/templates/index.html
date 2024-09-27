@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* CSS to increase the size of input boxes */
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation Links -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="/#home" onclick="showSection('home')">Home</a></li>
+            <li><a href="/#about" onclick="showSection('about')">About Us</a></li>
+            <li><a href="/#contact" onclick="showSection('contact')">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Crop Recommendation</h1>
+        <form action="/predict" method="post">
+            <label for="N">N (Nitrogen):</label><br>
+            <input type="number" id="N" name="N" min="0" max="140" required><br>
+
+            <label for="P">P (Phosphorus):</label><br>
+            <input type="number" id="P" name="P" min="0" max="145" required><br>
+
+            <label for="K">K (Potassium):</label><br>
+            <input type="number" id="K" name="K" min="0" max="205" required><br>
+
+            <label for="temperature">Temperature:</label><br>
+            <input type="number" id="temperature" name="temperature" value="{{ temperature }}" min="8.0" max="45.0" step="0.000000000000000001" required><br>
+
+            <label for="humidity">Humidity:</label><br>
+            <input type="number" id="humidity" name="humidity" value="{{ humidity }}" min="15.0" max="100.0" step="0.000000000000000001" required><br>
+
+            <label for="moisture">Moisture:</label><br>
+            <div class="moisture-container">
+                <progress id="moisture" value="{{ moisture_percentage }}" max="100"></progress><br>
+                <span class="moisture-percentage">{{ moisture_percentage }}%</span>
+            </div>
+            <br><br>
+
+            <label for="ph">pH:</label><br>
+            <input type="number" id="ph" name="ph" min="3.0" max="10.0" step="0.00000001" required><br>
+
+            <label for="rainfall">Rainfall:</label><br>
+            <input type="number" id="rainfall" name="rainfall" min="20" max="300" required><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+        
+        <button onclick="window.location.href='/'">Back</button>
+
+    </div>
+    
+    <!-- Background Image -->
+    <style>
+        /* Add background image to body */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('static/bg_farm.jpg'); /* Background image for the entire page */
+            background-size: cover; /* Cover the entire background */
+            background-repeat: no-repeat; /* Do not repeat the background image */
+            color: #fff; /* White text color */
+        }
+
+        
+    </style>
+</body>
+</html>
